@@ -61,7 +61,18 @@ footer ul li{
 	background-color:#fae596;
 }
 
-.article_actions{
+.article-actions{
 	padding:5px;
-	border-top: 1px solid #777
+	border-top: 1px solid #777;
+}
+
+.article-title{
+	font-size:1.5em;
+	font-weight:bold;
+}
+
+.article-body{
+	border-top:1px solid #777;
+	padding-top:15px;
+	padding-bottom:15px;
 }
