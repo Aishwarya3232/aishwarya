@@ -47,5 +47,6 @@ class ArticlesController < ApplicationController
 		if current_user != @article.user
 			flash[:danger] = "You can edit or delete only your own articles"
 			redirect_to root_path
+		end
 	end
 end
