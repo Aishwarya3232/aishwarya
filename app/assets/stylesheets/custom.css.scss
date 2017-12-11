@@ -3,7 +3,7 @@ $navbar-default-bg: #3fb0ac;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 body{
-	background-color:#dddfd4;
+	background-color:#fff;
 	color:#173e43;
 }
 #logo{
@@ -11,6 +11,11 @@ body{
 	color:#fff;
 	font-size:1.7em;
 	font-weight:bold;
+}
+
+.listing{
+	list-style-type:none;
+	padding-left:0;
 }
 
 #logo.hover{
@@ -22,7 +27,8 @@ body{
 }
 
 .jumbotron{
-	background-color:#fae596;
+	/*background-color:#fae596;*/
+	background-color:#dddfd4;
 	margin-bottom:30px;
 	text-align:center;
 	height:550px;
@@ -63,7 +69,7 @@ footer ul li{
 }
 
 .well{
-	background-color:#fae596;
+	background-color:#dddfd4;
 }
 
 .article-actions{
