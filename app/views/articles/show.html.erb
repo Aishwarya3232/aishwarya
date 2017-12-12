@@ -22,8 +22,11 @@
 	</h4>
 	<hr color="#000">
 	<%= simple_format(@article.description)%>
+	<% if @article.categories.any? %>
+		<p> Categories : <%= render @article.categories%></p>
+	<% end %>
 	<div class="article-actions">
-		<% if logged_in? and (current_user == article.user || current_user.admin?) %>
+		<% if logged_in? and (current_user == @article.user || current_user.admin?) %>
 			<%=link_to "Edit this article", edit_article_path(@article), class: "btn btn-primary btn-xs"%>
 			<%=link_to "Delete this article", article_path(@article), method: :delete, data: {confirm:"Are you sure you want to delete the article?"}, class: "btn btn-danger btn-xs"%>
 		<% end %> 

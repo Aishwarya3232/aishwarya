@@ -43,7 +43,7 @@ footer{
 	margin-top:45px;
 	padding-top:5px;
 	border-top:1px solid #000;
-	color:#777
+	color:#777;
 }
 
 footer small{
@@ -66,6 +66,17 @@ footer ul li{
 
 .description{
 	margin-top:0;
+}
+
+.input_checkbox{
+	width: auto !important;
+}
+
+.badge{
+	background-color: #cef6f5;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	font-weight: bold;
 }
 
 .well{
