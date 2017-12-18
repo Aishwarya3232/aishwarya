@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
 	end
 
 	def index
-		@category = Category.paginate(page: params[:page],per_page: 5)
+		@category = Category.includes(articles: :user).paginate(page: params[:page],per_page: 5)
 	end
 	def edit
 

@@ -8,7 +8,13 @@
 				<li class="article-title">
 					<%=link_to "#{category.name}", category_path(category)%>
 				</li>
-				<li><small><%= pluralize(category.articles.count,"article")%></small></li>
+				<% art_count = category.articles.count %>
+				<% if art_count > 0 %>
+					<% category.articles.each do |art| %>
+						<li><%= link_to "#{art.title}", article_path(art)%>, Created by <%="#{art.user.username}(#{art.user.email})"%></li>
+					<% end %>
+				<% end %>
+				<li><small><%= pluralize(art_count,"article")%></small></li>
 			</div>
 		</div>
 	</ul>

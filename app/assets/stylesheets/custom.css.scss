@@ -3,7 +3,8 @@ $navbar-default-bg: #fae596;;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 body{
-	background-color:#fff;
+	/*background-image: url("indexbgimg.jpg");*/
+	background-size: cover;
 	color:#173e43;
 }
 #logo{
