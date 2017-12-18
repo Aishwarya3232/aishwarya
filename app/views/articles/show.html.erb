@@ -24,8 +24,9 @@
 					<p> Categories : <%= render @article.categories%></p>
 	<% end %>
 	<%= simple_format(@article.description)%>
-	<%= link_to do %><i class="fa fa-thumbs-up"></i><% end %>xx
-	<%= link_to do %><i class="fa fa-thumbs-down"></i><% end %>xx
+	<div id='likedislike'>
+		<%= render 'likes' %>
+	</div>
 	<div class="article-actions">
 		<% if logged_in? and (current_user == @article.user || current_user.admin?) %>
 			<%=link_to "Edit this article", edit_article_path(@article), class: "btn btn-primary btn-xs"%>

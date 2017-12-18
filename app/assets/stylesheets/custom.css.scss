@@ -99,3 +99,32 @@ footer ul li{
 	padding-top:15px;
 	padding-bottom:15px;
 }
+
+.likebtn{
+	font-size:1.5em;
+	text-decoration: none;
+}
+
+.thumbs-success{
+	color: #5cb85c;
+}
+
+.thumbs-danger{
+	color: #d9534f;
+}
+
+.thumbs-neutral{
+	color: #777;
+}
+
+.thumbs-success:hover{
+	filter: brightness(85%);
+	color: #5cb85c;
+	text-decoration: none;
+}
+
+.thumbs-danger:hover{
+	color: #d9534f;
+	filter: brightness(85%);
+	text-decoration: none;
+}
