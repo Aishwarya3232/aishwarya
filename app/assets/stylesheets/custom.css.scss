@@ -12,6 +12,7 @@ body{
 	color:#000;
 	font-size:1.7em;
 	font-weight:bold;
+	text-shadow: 0 0 20px red;
 }
 
 .listing{
@@ -30,6 +31,7 @@ body{
 .jumbotron{
 	/*background-color:#fae596;*/
 	background-color:#dddfd4;
+	/*background-color:linear-gradient(30deg, #ed2f18 0%, #eb613e 16%, #e58563 33%, #d9a588 50%, #c6c3ae 66%, #a7dfd5 83%, #6cfcfe 100%)*/
 	margin-bottom:30px;
 	text-align:center;
 	height:550px;
@@ -105,6 +107,18 @@ footer ul li{
 	text-decoration: none;
 }
 
+.thumbs-success:hover{
+	filter: brightness(85%);
+	color: #5cb85c;
+	text-decoration: none;
+}
+
+.thumbs-danger:hover{
+	color: #d9534f;
+	filter: brightness(85%);
+	text-decoration: none;
+}
+
 .thumbs-success{
 	color: #5cb85c;
 }
@@ -117,14 +131,10 @@ footer ul li{
 	color: #777;
 }
 
-.thumbs-success:hover{
-	filter: brightness(85%);
-	color: #5cb85c;
-	text-decoration: none;
+.comments-listing{
+	margin-bottom:5px;
 }
 
-.thumbs-danger:hover{
-	color: #d9534f;
-	filter: brightness(85%);
-	text-decoration: none;
+.article-description{
+	font-size: 1.4em;
 }

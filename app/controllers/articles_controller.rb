@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
-	before_action :set_article, only: [:edit, :update, :show, :destroy]
-	before_action :require_user, except: [:index, :show]
+	before_action :set_article, only: [:edit, :update, :destroy, :add_comment, :add_like, :delete_comment, :add_dislike]
+	before_action :require_user, except: [:index, :show, :add_comment]
 	before_action :require_same_user, only: [:edit, :update, :destroy]
 	def show
-
+		@article = Article.includes(:comments).find(params[:id])
 	end
 	def new
 		@article = Article.new
@@ -36,6 +36,56 @@ class ArticlesController < ApplicationController
 		flash[:danger] = "Article was deleted"
 		redirect_to articles_path
 	end
+	def add_like
+		if(@article.likes?(current_user))
+			@article.becomeneutral(current_user)
+		else
+			if(@article.dislikes?(current_user))
+				@article.becomeneutral(current_user)
+			end
+			@article.addlike(current_user)
+		end
+		respond_to do |format|
+			format.html
+			format.js { render partial: 'articles/likes' }
+		end
+	end
+
+	def add_dislike
+		if(@article.dislikes?(current_user))
+			@article.becomeneutral(current_user)
+		else
+			if(@article.likes?(current_user))
+				@article.becomeneutral(current_user)
+			end
+			@article.adddislike(current_user)
+		end
+		respond_to do |format|
+			format.html
+			format.js { render partial: 'articles/likes' }
+		end
+	end
+
+	def add_comment
+		if logged_in? 
+    		@article.comments << Comment.new(user_id: current_user.id, user_name: current_user.username, description: params[:comment])
+		else
+    		@article.comments << Comment.new(user_name: "Anonymous", description: params[:comment])
+		end
+		respond_to do |format|
+			format.html
+			format.js { render partial: 'articles/comments' }
+		end
+	end
+
+	def delete_comment
+		@article.comments.where(id: params[:comment]).first.destroy
+		respond_to do |format|
+			format.html
+			format.js { render partial: 'articles/comments' }
+		end
+	end
+
 	private
 	def set_article
 		@article = Article.find(params[:id])
