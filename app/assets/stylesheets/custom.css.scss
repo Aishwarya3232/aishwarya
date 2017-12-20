@@ -1,4 +1,4 @@
-$navbar-default-bg: #fae596;;
+$navbar-default-bg: #fae596;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -31,7 +31,7 @@ body{
 .jumbotron{
 	/*background-color:#fae596;*/
 	background-color:#dddfd4;
-	/*background-color:linear-gradient(30deg, #ed2f18 0%, #eb613e 16%, #e58563 33%, #d9a588 50%, #c6c3ae 66%, #a7dfd5 83%, #6cfcfe 100%)*/
+	/*background-color:linear-gradient(30deg, #ed2f18 0%, #eb613e 16%, #e58563 33%, #d9a588 50%, #c6c3ae 66%, #a7dfd5 83%, #6cfcfe 100%);background-color:linear-gradient(30deg, #ed2f18 0%, #eb613e 16%, #e58563 33%, #d9a588 50%, #c6c3ae 66%, #a7dfd5 83%, #6cfcfe 100%);*/
 	margin-bottom:30px;
 	text-align:center;
 	height:550px;
@@ -133,8 +133,17 @@ footer ul li{
 
 .comments-listing{
 	margin-bottom:5px;
+	margin-left: 5px;
+	padding: 1px;
 }
 
 .article-description{
 	font-size: 1.4em;
+}
+
+.comment-del{
+	font-size: 0.7em;
+	text-decoration: none;
+	line-height: 0.2;
+	color: #777;
 }

@@ -4,9 +4,9 @@
 			<strong><%=comment.user_name%> :</strong>
 		</div>
 		<div class="col-sm-7">
-			<%=comment.description%>
+			<%=comment.description%><br>
 			<% if logged_in? and (current_user.id == @article.user.id || comment.user_id == current_user.id) %>
-				<%= link_to "X", delete_comment_path(id: @article.id, comment: comment.id), class: "btn btn-danger btn-xs", method: :delete, remote: true %>	
+				<%= link_to "Delete", delete_comment_path(id: @article.id, comment: comment.id), class: "comment-del", method: :delete, remote: true %>	
 			<% end %>
 		</div>
 		<div class="col-sm-3">
