@@ -1,16 +1,13 @@
-<% @article.comments.each do |comment| %>
+<% @comments.each do |comment| %>
 	<div class="comments-listing row">
-		<div class="col-sm-2">
-			<strong><%=comment.user_name%> :</strong>
-		</div>
-		<div class="col-sm-7">
+		<div class="col-sm-12">
+			<strong><%= comment.user_id? ? (link_to comment.user.username, user_path(comment.user.id)) : "Anonymous" %> </strong>
 			<%=comment.description%><br>
-			<% if logged_in? and (current_user.id == @article.user.id || comment.user_id == current_user.id) %>
-				<%= link_to "Delete", delete_comment_path(id: @article.id, comment: comment.id), class: "comment-del", method: :delete, remote: true %>	
+			<% if logged_in? and (current_user.id == @article.user.id || comment.user_id == current_user.id || current_user.admin?) %>
+				<%= link_to "Edit", delete_comment_path(id: @article.id, comment: comment.id), class: "comment-action", remote: true %>	
+				<%= link_to "Delete", delete_comment_path(id: @article.id, comment: comment.id), class: "comment-action", method: :delete, remote: true %>	
 			<% end %>
-		</div>
-		<div class="col-sm-3">
-			<small><%=time_ago_in_words(comment.created_at)%> ago </small>
+			<small><%=time_ago_in_words(comment.created_at)%></small>
 		</div>
 	</div>
 <% end %>

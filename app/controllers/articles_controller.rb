@@ -3,7 +3,8 @@ class ArticlesController < ApplicationController
 	before_action :require_user, except: [:index, :show, :add_comment]
 	before_action :require_same_user, only: [:edit, :update, :destroy]
 	def show
-		@article = Article.includes(:comments).find(params[:id])
+		@article = Article.includes(:categories, :comments, :user, :likes).find(params[:id])
+		@comments = Comment.includes(:user)
 	end
 	def new
 		@article = Article.new
@@ -68,9 +69,9 @@ class ArticlesController < ApplicationController
 
 	def add_comment
 		if logged_in? 
-    		@article.comments << Comment.new(user_id: current_user.id, user_name: current_user.username, description: params[:comment])
+    		@article.comments << Comment.new(user_id: current_user.id, description: params[:comment])
 		else
-    		@article.comments << Comment.new(user_name: "Anonymous", description: params[:comment])
+    		@article.comments << Comment.new(user_id: nil, description: params[:comment])
 		end
 		respond_to do |format|
 			format.html
