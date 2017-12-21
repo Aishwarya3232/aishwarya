@@ -19,7 +19,6 @@ class Article < ApplicationRecord
   	def becomeneutral(user)
   		likes.where(user_id: user.id).first.destroy
     end
-
     def num_likes
       likes.positive.count
     end

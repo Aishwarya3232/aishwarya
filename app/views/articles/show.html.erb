@@ -24,7 +24,7 @@
 		<%= @article.description%>
 	</div>
 	<div id='likedislike'>
-		<%= render 'likes' %>
+		<%= render 'likes' , obj: @article %>
 	</div>
 	<div class="article-actions">
 		<% if logged_in? and (current_user == @article.user || current_user.admin?) %>

@@ -1,10 +1,9 @@
 class ArticlesController < ApplicationController
-	before_action :set_article, only: [:edit, :update, :destroy, :add_comment, :add_like, :delete_comment, :add_dislike]
+	before_action :set_article, only: [:edit, :update, :destroy, :add_comment, :add_like, :edit_comment, :delete_comment, :add_dislike]
 	before_action :require_user, except: [:index, :show, :add_comment]
 	before_action :require_same_user, only: [:edit, :update, :destroy]
 	def show
 		@article = Article.includes(:categories, :comments, :user, :likes).find(params[:id])
-		@comments = Comment.includes(:user)
 	end
 	def new
 		@article = Article.new
@@ -87,6 +86,10 @@ class ArticlesController < ApplicationController
 		end
 	end
 
+	def edit_comment
+
+	end
+
 	private
 	def set_article
 		@article = Article.find(params[:id])
@@ -100,4 +103,6 @@ class ArticlesController < ApplicationController
 			redirect_to root_path
 		end
 	end
+
+    
 end
