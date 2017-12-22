@@ -86,7 +86,7 @@ footer ul li{
 	background-color:#dddfd4;
 }
 
-.article-actions{
+.article-footer{
 	padding:5px;
 	border-top: 1px solid #777;
 }
@@ -146,4 +146,35 @@ footer ul li{
 	text-decoration: none;
 	line-height: 0.2;
 	color: #777;
+}
+
+.article-header{
+	padding: 5px;
+	display: flex;
+}
+
+.article-name{
+	flex-basis: 30%;
+}
+
+.article-category{
+	margin-top: 30px;
+	margin-bottom: 20px;
+	flex-basis: 70%;
+}
+
+.article-content{
+	padding: 5px;
+	margin: 3px;
+	clear: both;
+}
+
+.article-footer{
+	padding:5px;
+	border-top: 1px solid #777;
+	display: flex;
+}
+
+.article-footer div{
+	flex-basis: 50%;
 }
